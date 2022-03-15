@@ -1,0 +1,79 @@
+Regular Experssions:
+
+Lets say for example you want to find all the telephone numbers in a dataset , or all the addresses.
+For example in Excel or Word or anything in that matter you can use Ctlr+F (Find) to find a specific telephone number [ not ALL the telephone number ].
+
+Hence in order to solve this problem we use regular expressions --> where we give a description of what we need to find.
+
+Note: Regular expressions is a very imporant topic, therfore you can spend some time looking around the internet to find out more informations about it
+
+A normal expression contains charactes & symbols in general
+Most characters match their self 
+Eg: an expression of test matches the expression of test
+
+This is not always the case. 
+There are some charactes which cannot be described by themselves.
+. ^ $ * + ? { } [ ] \ | ( )
+
+Lets see how the above characters are used
+
+1) [ ] are used to indicate a character class
+EG: [fgm]ood --> food,good,mood
+
+2) - is used to indicate a range of characters
+EG: [abc] --> [a-c]
+
+Note: If for example in a character class we also have one of the special characters
+EG: [akm$] --> Then we do not use the functionallity of $ but rather it is executed like (1)
+
+4) ^ is used to select all the data except the expression found on the right
+EG: [^5] select all the characters expect 5
+EG: [^m]iss --> kiss,hiss,diss... all word NOT starting with letter m
+
+Note: If the we have [5^] means either 5 or ^ [ losses its ability indicated in (4) ]
+
+* 5) Most important character is \
+EG: \d : [0-9]
+EG: \D : [^0-9]
+EG: \s : [ \t\n\r\f\v]
+EG: \S : [^ \t\n\r\f\v]
+EG: \w : [a-zA-Z0-9_]
+EG: \W : [^a-zA-Z0-9_]
+
+\f: formfeed
+\n: linefeed
+\r: carriage return
+\t: tab
+\v: vertical tab
+
+6) . any character ; except enter
+
+7) * 'greedy' repetition
+EG: ca*t ==> ct(0),cat(1),caaat(3)..... 
+
+8) + repetition only once ; NOT for 0 [ct]
+EG: ca+t ==> cat(1 a)
+
+9) ? match only 0 or 1
+EG: home-?brew ==> homebrew OR home-brew
+
+10) {} for a specific number of repetions
+EG: a/{1,3}b ==> a/b, a//b, a///b
+
+NOTE:
+{0,} ==  *.
+
+{1,} == +.
+
+{0,1} == ?.
+
+11) | means OR
+eg: cat|dog ==> match cat OR dog
+
+12) $ mathces a word at the end [ opposite version of ^ ]
+EG: fear$  ==> [do not fear] NOT with [fear not]
+
+Note:
+\$ : match $ sign
+210 \d{7} --> match telephone numbers beginning with 210 with 7 numbers
+
